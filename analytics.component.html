@@ -1,0 +1,22 @@
+<!-- src/app/analytics/analytics.component.html -->
+<div>
+    <h2>Analytics Data</h2>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Short URL</th>
+          <th>Expires At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of analyticsData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.shortUrl }}</td>
+          <td>{{ item.expiresAt }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
