@@ -1,29 +1,33 @@
-// src/app/analytics/analytics.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-analytics',
-  templateUrl: './analytics.component.html',
-  styleUrls: ['./analytics.component.css'],
+  template: `
+    <div>
+      <h2>Link Analytics</h2>
+      <button (click)="fetchAnalyticsData()">Fetch Analytics Data</button>
+      <ul *ngIf="analyticsData.length > 0">
+        <li *ngFor="let item of analyticsData">{{ item }}</li>
+      </ul>
+      <div *ngIf="analyticsData.length === 0">No analytics data available.</div>
+    </div>
+  `,
 })
 export class AnalyticsComponent implements OnInit {
-  analyticsData: any[] = [];
+  analyticsData: string[] = [];
 
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit(): void {
-    this.loadAnalyticsData();
+  ngOnInit() {
+    
   }
 
-  loadAnalyticsData(): void {
-    this.apiService.getLinkAnalytics().subscribe(
-      (data) => {
-        this.analyticsData = data;
-      },
-      (error) => {
-        console.error('Error loading analytics data:', error);
-      }
-    );
+  fetchAnalyticsData() {
+    // Simulate fetching analytics data from a backend or another source
+    // In a real application, you would likely make an HTTP request
+    this.analyticsData = this.generateDummyAnalyticsData();
+  }
+
+  private generateDummyAnalyticsData(): string[] {
+    // Generate some dummy analytics data for demonstration purposes
+    return Array.from({ length: 5 }, (_, index) => `Analytics Item ${index + 1}`);
   }
 }
