@@ -1,0 +1,14 @@
+<!-- src/app/link-details/link-details.component.html -->
+<div *ngIf="linkDetails">
+    <h2>Link Details</h2>
+    <p>ID: {{ linkDetails.id }}</p>
+    <p>Original URL: {{ linkDetails.originalUrl }}</p>
+    <p>Short URL: {{ linkDetails.shortUrl }}</p>
+    <p>Expires At: {{ linkDetails.expiresAt }}</p>
+    <!-- Add more details as needed -->
+  </div>
+  
+  <div *ngIf="!linkDetails">
+    <p>Loading...</p>
+  </div>
+  
